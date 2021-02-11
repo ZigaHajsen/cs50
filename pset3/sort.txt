@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Biggest difference between fastest and slowest list, n^2 and n 
+
+sort2 uses: Merge Sort
+
+How do you know?: shortest constant time between all of the lists, n*log*n and n*log*n
+
+sort3 uses: Selection Sort
+
+How do you know?: longest constant time between all of the lists, n^2 and n^2
