@@ -1,0 +1,28 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+nav {
+  background-color: lightblue;
+  height: 10vh;
+}
+
+.section {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#typewriter {
+  color: lightblue;
+}
+
+#unordered-list {
+  font-size: 3rem;
+}
+
+#ordered-list {
+  font-size: 2rem;
+}
