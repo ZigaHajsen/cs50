@@ -1,0 +1,17 @@
+{% extends "layout.html" %} {% block title %} Stock Quote {% endblock %} {%
+block main %}
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Share Price</th>
+    </tr>
+    <tr>
+      <td>{{ stock['name'] }}</td>
+      <td>{{ stock['symbol'] }}</td>
+      <td>{{ stock['price'] }}</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
