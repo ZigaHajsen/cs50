@@ -11,6 +11,8 @@ flask-sqlalchemy = "*"
 [dev-packages]
 "pylint.flask" = "*"
 black = "*"
+pylint-sqlalchemy = "*"
+pylint-flask-sqlalchemy = "*"
 
 [requires]
 python_version = "3.9"
