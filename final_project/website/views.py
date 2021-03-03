@@ -3,7 +3,7 @@ import json
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 
-from .models import Note
+from .models import Todo
 from . import db
 
 views = Blueprint("views", __name__)
@@ -13,28 +13,28 @@ views = Blueprint("views", __name__)
 @login_required
 def home():
     if request.method == "POST":
-        note = request.form.get("note")
+        todo = request.form.get("todo")
 
-        if len(note) < 1:
-            flash("Note is to short.", category="error")
+        if len(todo) < 1:
+            flash("Todo is to short.", category="error")
         else:
-            new_note = Note(data=note, user_id=current_user.id)
-            db.session.add(new_note)
+            new_todo = Todo(data=todo, user_id=current_user.id)
+            db.session.add(new_todo)
             db.session.commit()
-            flash("Note added!", category="success")
+            flash("Todo added!", category="success")
 
     return render_template("home.html", user=current_user)
 
 
-@views.route("/delete-note", methods=["POST"])
-def delete_note():
+@views.route("/delete-todo", methods=["POST"])
+def delete_todo():
     data = json.loads(request.data)
-    note_id = data["noteId"]
-    note = Note.query.get(note_id)
-    if note:
-        if note.user_id == current_user.id:
-            db.session.delete(note)
+    todo_id = data["todoId"]
+    todo = Todo.query.get(todo_id)
+    if todo:
+        if todo.user_id == current_user.id:
+            db.session.delete(todo)
             db.session.commit()
-            flash("Note deleted!", category="success")
+            flash("Todo deleted!", category="success")
 
     return jsonify({})
